@@ -1,0 +1,21 @@
+# Use an official Python runtime as a base image
+FROM python:3.8
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Define environment variable
+ENV NAME World
+
+# Create a simple Python script
+RUN echo "print('Hello, $NAME')" > app.py
+
+# Create a simple Python script
+RUN echo "print('Docker is cool')" > app2.py
+
+# Using CMD to set a default command that can be overridden
+CMD ["python", "app.py"]
+
+# Using ENTRYPOINT to provide an executable entry point
+# ENTRYPOINT ["echo", "Greetings from Entrypoint"]
+# ENTRYPOINT ["python", "app.py"]
